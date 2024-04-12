@@ -11,6 +11,8 @@ import {
   Text,
   Button,
   Select,
+  InputGroup,
+  InputRightElement,
 } from "@chakra-ui/react";
 import axios from "axios";
 import { AppContext } from "./Context";
@@ -22,6 +24,8 @@ export default function UserSignUp() {
   const [formData, setFormData] = useState({});
   const [institutions, setInstitutions] = useState([]);
   const { userType, setUserType, login, setLogin } = useContext(AppContext);
+  const [show, setShow] = React.useState(false)
+  const handleClick = () => setShow(!show)
   useEffect(() => {
     axios
       .get("http://localhost:8080/institutions")
@@ -102,19 +106,19 @@ export default function UserSignUp() {
         return (
           <div className="form-parent">
             <form className="form" onSubmit={handleSubmit(FormSubmitHandler1)}>
-              <Text as="b" fontSize="2.3vmax">
+              <Text as="b" fontSize={["3vmax", "2.3vmax"]}>
                 Sign-Up
               </Text>
-              <Text as="i" fontSize="1vmax">
+              <Text as="i" fontSize={["1.5vmax", "1.2vmax"]}>
                 Enter the following details!
               </Text>
               <FormControl>
-                <FormLabel fontSize="1.2vmax" as="i" fontWeight="550">
+                <FormLabel fontSize={["2vmax", "1.2vmax"]} as="i" fontWeight="550">
                   Username
                 </FormLabel>
                 <Input
                   type="text"
-                  borderColor="blue"
+                  border="2px solid #0959aa90"
                   {...register("username", {
                     required: "Username is required",
                   })}
@@ -122,12 +126,12 @@ export default function UserSignUp() {
                 <p className="err">{errors.username?.message}</p>
               </FormControl>
               <FormControl>
-                <FormLabel fontSize="1.2vmax" as="i" fontWeight="550">
+                <FormLabel fontSize={["2vmax", "1.2vmax"]} as="i" fontWeight="550">
                   Name
                 </FormLabel>
                 <Input
                   type="text"
-                  borderColor="blue"
+                  border="2px solid #0959aa90"
                   {...register("name", {
                     required: "Name is required",
                   })}
@@ -135,12 +139,13 @@ export default function UserSignUp() {
                 <p className="err">{errors.name?.message}</p>
               </FormControl>
               <FormControl>
-                <FormLabel fontSize="1.2vmax" as="i" fontWeight="550">
+                <FormLabel fontSize={["2vmax", "1.2vmax"]} as="i" fontWeight="550">
                   Password
                 </FormLabel>
+                <InputGroup>
                 <Input
-                  type="password"
-                  borderColor="blue"
+                  type={show ? 'text' : 'password'}
+                  border="2px solid #0959aa90"
                   {...register("password", {
                     required: "Password Required",
                     minLength: {
@@ -150,10 +155,16 @@ export default function UserSignUp() {
                     pattern: {
                       value: /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d@$!%*?&]{8,}$/,
                       message:
-                        "Password Not Valid (Use Special Characters & Numbers)",
+                      "Password Not Valid (Use Special Characters & Numbers)",
                     },
                   })}
-                />
+                  />
+                  <InputRightElement width='5rem'>
+        <Button h='1.75rem' size='sm' onClick={handleClick}>
+          {show ? 'Hide' : 'Show'}
+        </Button>
+      </InputRightElement>
+                  </InputGroup>
                 <p className="err">{errors.password?.message}</p>
               </FormControl>
               <Button type="submit" colorScheme="red">
@@ -178,7 +189,7 @@ export default function UserSignUp() {
                 </FormLabel>
                 <Input
                   type="text"
-                  borderColor="blue"
+                  border="2px solid #0959aa90"
                   {...register("address", {
                     required: "Address is required",
                   })}
@@ -224,7 +235,7 @@ export default function UserSignUp() {
                   </FormLabel>
                   <Input
                     type="number"
-                    borderColor="blue"
+                    border="2px solid #0959aa90"
                     {...register("contact.phone", {
                       required: "Phone is required",
                       minLength: {
@@ -252,7 +263,7 @@ export default function UserSignUp() {
                   </FormLabel>
                   <Input
                     type="email"
-                    borderColor="blue"
+                    border="2px solid #0959aa90"
                     {...register("contact.email", {
                       required: "Email is required",
                     })}
@@ -290,7 +301,6 @@ export default function UserSignUp() {
   return (
     <div className="signup-grandparent">
       <div className="signup-parent">
-        <ToastContainer />
         <div className="signup-img">
           <img style={{ width: "40vmax" }} src={Photo} alt="" />
         </div>
@@ -298,10 +308,13 @@ export default function UserSignUp() {
       </div>
       <div className="signup-btns">
         <Link to="/institution/signup">
-          <Button colorScheme="blue">Institution SignUp</Button>
+          <Button colorScheme="blue">Institution Sign Up</Button>
         </Link>
-        <Button colorScheme="blue">Organisation SignUp</Button>
+        <Button colorScheme="blue">Organisation Sign Up</Button>
+
       </div>
+      <ToastContainer />
+
     </div>
   );
 }

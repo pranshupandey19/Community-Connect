@@ -61,6 +61,7 @@ body {
 .signup-btns{
   display: flex;
   flex-direction: row;
+  align-items: center;
   justify-content: center;
   gap: 3vmin;
 }
@@ -86,7 +87,7 @@ body {
 }
 .err {
   color: red;
-  font-size: 2vmin;
+  font-size: 1.5vmin;
   margin-top: 0.5vmin;
 }
 .organisations-parent{
@@ -126,14 +127,22 @@ body {
 }
 @media (max-width:1000px) {
   .signup-parent{
-    /* flex-wrap: wrap; */
     flex-direction: column;
     justify-content: center;
-    gap: 10vmax;
-    /* padding: 0vmin 10vmin; */
+    gap: 6vmax;
   }
   .form-parent{
     flex:0;
+  }
+  .signup-btns{
+    flex-direction: column;
+    gap: 2vmax;
+  }
+  .form{
+    gap: 2vmax;
+  }
+  .err {
+    font-size: 1.4vmax;
   }
 }
 @keyframes bounce {

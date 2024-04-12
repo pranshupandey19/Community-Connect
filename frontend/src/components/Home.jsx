@@ -16,7 +16,7 @@ import { FaChevronDown } from "react-icons/fa6";
 export default function Home() {
   document.title = "Community Connect"
   return (
-    <div style={{ flex: "1" , display:"flex", flexDirection:"column", justifyContent:"center" }} className="flex">
+    <div style={{ flex: "1", overflowX:"hidden" , display:"flex", flexDirection:"column", justifyContent:"center" }} className="flex">
       <Container maxW={"7xl"}>
         <Stack
           align={"center"}
