@@ -90,6 +90,7 @@ orgRouter.post(
               name: findOrg.name,
               description: findOrg.description,
             },
+            type: "Organization",
           },
           process.env.JWT_PASS
         );

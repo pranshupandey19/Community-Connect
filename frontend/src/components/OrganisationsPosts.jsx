@@ -21,7 +21,6 @@ import {
 import { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import axios from "axios";
-import { redirect } from "react-router-dom";
 
 function OrganisationsPosts({ listing }) {
   const [key, setKey] = useState("");

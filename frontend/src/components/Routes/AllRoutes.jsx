@@ -14,11 +14,15 @@ import OrgSignUp from "../OrgSignUp";
 import {
   InstitutionPrivateRoute,
   InstitutionUserPrivateRoute,
+  OrganisationPrivateRoute,
+  OrganisationUserPrivateRoute,
 } from "./PrivateRoutes";
 import AskHelp from "../AskHelp";
 import OrgSignIn from "../OrgSignIn";
 import Thanks from "../Thanks";
 import Helps from "../Helps";
+import NPORegsiter from "../NPORegister";
+import NPOs from "../NPOs";
 
 export default function AllRoutes() {
   return (
@@ -41,6 +45,14 @@ export default function AllRoutes() {
         }
       />
       <Route
+        path="/new/npo/event"
+        element={
+          <OrganisationPrivateRoute>
+            <NPORegsiter />
+          </OrganisationPrivateRoute>
+        }
+      />
+      <Route
         path="/events"
         element={
           <InstitutionUserPrivateRoute>
@@ -48,10 +60,18 @@ export default function AllRoutes() {
           </InstitutionUserPrivateRoute>
         }
       />
+      <Route
+        path="/npos"
+        element={
+          <OrganisationUserPrivateRoute>
+            <NPOs />
+          </OrganisationUserPrivateRoute>
+        }
+      />
       <Route path="/org/signin" element={<OrgSignIn />} />
       <Route path="/ask/help" element={<AskHelp />} />
       <Route path="/thanks/:id/:amount" element={<Thanks />} />
-      <Route path="/requests" element={<Helps/>} />
+      <Route path="/requests" element={<Helps />} />
     </Routes>
   );
 }

@@ -13,6 +13,10 @@ const npoSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
+  address: {
+    type: String,
+    required: true,
+  },
   volunteers: {
     type: Number,
     required: true,
