@@ -1,0 +1,145 @@
+@import url("https://fonts.googleapis.com/css2?family=Quattrocento+Sans:ital,wght@0,400;0,700;1,400;1,700&display=swap");
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: "Quattrocento Sans", sans-serif;
+}
+body {
+  background: rgb(255, 255, 255);
+  background: linear-gradient(
+    0deg,
+    rgba(203, 229, 255, 1) 0%,
+    rgba(255, 255, 255, 1) 15%,
+    rgba(255, 255, 255, 1) 68%,
+    rgba(243, 249, 255, 1) 79%,
+    rgba(220, 237, 255, 1) 87%,
+    rgba(211, 232, 255, 1) 92%,
+    rgba(203, 229, 255, 1) 95%,
+    rgba(188, 221, 255, 1) 100%
+  ) !important;
+  background-repeat: no-repeat;
+  background-size: 100vw 100vh;
+}
+.flex {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.container {
+  min-height: 100vh;
+  min-width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+.nav-parent {
+  padding: 3vmin 8vmin;
+  position: sticky;
+  top: 0;
+}
+.navbar {
+  background-color: aliceblue;
+  border-radius: 20px;
+  padding: 2vmin 5vmin;
+}
+.signup-grandparent{
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 4vmin;
+  padding: 0vmin 10vmin;
+}
+.signup-parent {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 4vmin;
+}
+.signup-btns{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  gap: 3vmin;
+}
+.form-parent {
+  flex: 1;
+  /* padding: 5vmin 10vmin; */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  /* background-color: aliceblue; */
+  /* color: rgb(198, 232, 255); */
+}
+.form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  padding: 2vmin;
+  border-radius: 10px;
+  /* background-color: rgb(213, 227, 239); */
+  gap: 2vmin;
+}
+.err {
+  color: red;
+  font-size: 2vmin;
+  margin-top: 0.5vmin;
+}
+.organisations-parent{
+  /* width: 50vw; */
+  flex: 1;
+  gap: 2rem;
+  padding: 2vmin 10vmin;
+}
+.alerts-parent{
+  flex: 1;
+  padding: 4vmin 10vmin;
+}
+.events-parent{
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  /* justify-content: center; */
+  gap: 4vmin;
+  padding: 3vmin 15vmin;
+}
+.event-card{
+  padding: 2vmin;
+  border-radius: 5px;
+  display: flex;
+  flex-direction: column;
+  gap: 3vmin;
+  background-color: white;
+  border: 1px solid lightblue;
+}
+.thanks-parent{
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+@media (max-width:1000px) {
+  .signup-parent{
+    /* flex-wrap: wrap; */
+    flex-direction: column;
+    justify-content: center;
+    gap: 10vmax;
+    /* padding: 0vmin 10vmin; */
+  }
+  .form-parent{
+    flex:0;
+  }
+}
+@keyframes bounce {
+  0%, 100% {
+    transform: translateY(-10px);
+  }
+  50% {
+    transform: translateY(-25px);
+  }
+}
