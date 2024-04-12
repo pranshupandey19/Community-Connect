@@ -12,15 +12,29 @@ import {
   useColorModeValue,
 } from "@chakra-ui/react";
 import { FaChevronDown } from "react-icons/fa6";
+import {
+  FcAbout,
+  FcAssistant,
+  FcCollaboration,
+  FcDonate,
+  FcManager,
+  FcExpired,
+  FcGraduationCap
+
+} from 'react-icons/fc'
+import { useNavigate } from "react-router-dom";
+
 
 export default function Home() {
+  
   document.title = "Community Connect"
+  
   return (
     <div style={{ flex: "1", overflowX:"hidden" , display:"flex", flexDirection:"column", justifyContent:"center" }} className="flex">
       <Container maxW={"7xl"}>
         <Stack
           align={"center"}
-          spacing={{ base: 8, md: 10 }}
+          spacing={{ base: 8, md: 20 }}
           py={{ base: 10, md: 15 }}
           direction={{ base: "column", md: "row" }}
         >
@@ -122,11 +136,59 @@ export default function Home() {
             </Box>
           </Flex>
         </Stack>
+
       </Container>
       <IconAnimation />
+      <Box p={4}>
+      <Stack spacing={4} as={Container} maxW={'3xl'} textAlign={'center'}>
+        <Heading fontSize={{ base: '2xl', sm: '4xl' }} fontWeight={'bold'}>
+          Services We Offer
+        </Heading>
+        <Text color={'gray.600'} fontSize={{ base: 'sm', sm: 'lg' }}>
+          There is a wide range of activities that can be performed on the website but, listing some which are most used.
+        </Text>
+      </Stack>
+
+      <Container maxW={'5xl'} mt={12}>
+        <Flex flexWrap="wrap" gridGap={6} justify="center">
+          <Card
+            heading={'Manage Events'}
+            icon={<Icon as={FcGraduationCap
+          } w={10} h={10} />}
+            description={'As an Organization you can manage and create events on the platform and promote them too.'}
+            href={'/events'}
+          />
+          <Card
+            heading={'Report an Issue'}
+            icon={<Icon as={FcExpired} w={10} h={10} />}
+            description={"You can report issues in your campus or any other place, for NPO's to help the situation. "}
+            href={'/ask/help'}
+          />
+          <Card
+            heading={'Donations'}
+            icon={<Icon as={FcDonate} w={10} h={10} />}
+            description={'You can donate to non-profit organisation via our platform'}
+            href={'/organisations'}
+          />
+          <Card
+            heading={'Support'}
+            icon={<Icon as={FcAssistant} w={10} h={10} />}
+            description={'You can actively reach out to the support team via clicking the chat button.'}
+            href={''}
+          />
+          <Card
+            heading={'FAQ'}
+            icon={<Icon as={FcAbout} w={10} h={10} />}
+            description={'Visit our FAQ Page to know more! Many of your questions are answered there!'}
+            href={'/faq'}
+          />
+        </Flex>
+      </Container>
+    </Box>
     </div>
   );
 }
+
 
 const IconAnimation = () => {
   return (
@@ -153,5 +215,48 @@ const Blob = (props) => {
         fill="rgba(220, 237, 255, 1)"
       />
     </Icon>
+  );
+};
+
+
+
+const Card = ({ heading, description, icon, href }) => {
+  const navigate = useNavigate();
+  return (
+    <Box
+      maxW={{ base: 'full', md: '275px' }}
+      w={'full'}
+      borderWidth="1px"
+      borderRadius="lg"
+      overflow="hidden"
+      p={5}
+      _hover={{
+        bg: "#55a6f610",
+        cursor:"pointer"
+      }}
+    >
+      <Stack align={'start'} spacing={2}>
+        <Flex
+          w={16}
+          h={16}
+          align={'center'}
+          justify={'center'}
+          color={'white'}
+          rounded={'full'}
+          bg={useColorModeValue('gray.100', 'gray.700')}
+        >
+          {icon}
+        </Flex>
+        <Box mt={2}>
+          <Heading size="md">{heading}</Heading>
+          <Text mt={1} fontSize={'sm'}>
+            {description}
+          </Text>
+        </Box>
+        <Button variant={'link'} colorScheme={'blue'} size={'sm'} onClick={()=>{navigate(href)}}>
+          Learn more
+        </Button>
+      </Stack>
+    </Box>
   );
 };

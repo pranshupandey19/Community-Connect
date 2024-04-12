@@ -81,7 +81,7 @@ export default function OrgSignUp() {
         <div className="form-parent">
           <form
             className="form"
-            style={{ gap: "1vmin" }}
+            style={{ gap: "1vmin"}}
             onSubmit={handleSubmit(FormSubmitHandler)}
           >
             <Text as="b" fontSize="2vmax">

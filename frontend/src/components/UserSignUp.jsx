@@ -160,7 +160,7 @@ export default function UserSignUp() {
                   })}
                   />
                   <InputRightElement width='5rem'>
-        <Button h='1.75rem' size='sm' onClick={handleClick}>
+        <Button h='1.75rem' size='sm' onClick={handleClick} colorScheme="blue">
           {show ? 'Hide' : 'Show'}
         </Button>
       </InputRightElement>
