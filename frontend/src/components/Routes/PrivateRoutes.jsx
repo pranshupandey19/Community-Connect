@@ -43,3 +43,44 @@ export const InstitutionUserPrivateRoute = ({ children }) => {
 
   return <>{children}</>;
 };
+
+export const OrganisationPrivateRoute = ({ children }) => {
+  const navigate = useNavigate();
+  const { userType, setUserType } = useContext(AppContext);
+  const toast = useToast();
+  useEffect(() => {
+    if (userType != "Organization") {
+      toast({
+        title: "Not Authorized!",
+        description: "Please signup/login as an organization!",
+        status: "error",
+        duration: 4000,
+        isClosable: false,
+      });
+      navigate("/org/signup");
+    }
+  }, []);
+
+  return <>{children}</>;
+};
+
+export const OrganisationUserPrivateRoute = ({ children }) => {
+  const navigate = useNavigate();
+  const { userType, setUserType } = useContext(AppContext);
+  const toast = useToast();
+  useEffect(() => {
+    if (userType == "Institution") {
+      toast({
+        title: "Not Authorized!",
+        description:
+          "You are logged in as an Institution. Please signup/login as an organisation or user!",
+        status: "error",
+        duration: 4000,
+        isClosable: false,
+      });
+      navigate("/user/signup");
+    }
+  }, []);
+
+  return <>{children}</>;
+};

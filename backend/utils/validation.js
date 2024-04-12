@@ -64,6 +64,7 @@ exports.npoValidation = Joi.object({
   name: Joi.string().required(),
   description: Joi.string().required(),
   image: Joi.string().required(),
+  address: Joi.string().required(),
   volunteers: Joi.number().required(),
   date: Joi.date().required(),
   organisation: Joi.string().required(),
