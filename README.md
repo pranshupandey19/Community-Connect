@@ -2,16 +2,16 @@
 
 CommunityConnect is a collaborative platform designed to unite non-profit organizations, educational institutions, and individuals, fostering community engagement and social impact. Our mission is to provide a centralized hub where users can discover, connect, and contribute to various social causes and events.
 
-## Key Features
+## Key Features (Portal Wise Segregation)
 
 ### Institution Portal
 - **Event Management:** Educational institutions can list and manage events, from fundraisers to community service projects.
-- **Volunteer Opportunities:** Students can sign up to volunteer for events, gaining valuable experience.
-- **Collaboration:** Institutions can partner with non-profit organizations to provide students with social work opportunities.
+- **Provide Volunteer Opportunities:** Students can sign up to volunteer for events, gaining valuable experience.
 
 ### Individual Portal
 - **Personalized Experience:** Individuals can create profiles and receive tailored recommendations for volunteer opportunities and donation drives.
 - **Request Assistance:** Users can submit requests for assistance and connect with organizations willing to help.
+- **Volunteer in Events:** Students can sign up to volunteer for events, gaining valuable experience.
 
 ### Organization Portal
 - **Discover and Connect:** Non-profit organizations can showcase their missions, projects, and volunteer opportunities.
