@@ -13,8 +13,8 @@ import Photo from "../assets/FAQ.png"
 function FAQ() {
   return (
     <>
-    <div style={{ display: "flex", justifyContent: "center", alignItems:"center", flexDirection: "column", flex:"1"}}>
-  <Text fontSize='4xl' fontWeight="900">Frequently Asked Questions</Text>
+    <div style={{ display: "flex", justifyContent: "center", alignItems:"center", flexDirection: "column", flex:"1",paddingTop:"2vmax"}}>
+  <Text fontSize='4vmax' align={"center"} fontWeight="900">Frequently Asked Questions</Text>
   <br /><br />
       <Accordion allowToggle style={{ width: "75%", fontSize:"1rem", borderRadius:"20px"}}>
         <AccordionItem borderTop="2px solid #0a66c275" borderRadius="10px">

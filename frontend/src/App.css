@@ -85,6 +85,7 @@ body {
   /* background-color: rgb(213, 227, 239); */
   gap: 2vmin;
 }
+
 .err {
   color: red;
   font-size: 1.5vmin;
@@ -125,6 +126,96 @@ body {
   justify-content: center;
   align-items: center;
 }
+.tag-heading {
+  font-size: 2.5vmax;
+  font-weight: 700;
+}
+
+.tag-subHeading {
+  font-size: 1.2vmax;
+}
+
+.tag-line {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+
+.complaint-box {
+  /* line-height: 3vmax; */
+  display: flex;
+  flex-direction: column;
+  /* padding-top: 5vw; */
+  gap: 3vmax;
+}
+
+.details-form {
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.complaint-parent {
+  flex: 1;
+  padding: 2vmax 0;
+  display: flex;
+  flex-direction: column;
+  gap: 4vmax;
+}
+
+.next-button {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.complaints-parent {
+  flex: 1;
+  flex-direction: column;
+  padding: 2vmax 2vmax;
+  gap: 3vmax;
+}
+
+#complaints-header {
+  padding: 2vw;
+}
+
+.button-div {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2vmax;
+}
+
+.progress-div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50px;
+}
+
+.progress-bar {
+  /* border: 2px blue solid; */
+  background-color: aliceblue;
+  height: 2vh;
+  border-radius: 50px;
+  width: 50vw;
+}
+
+.progress {
+  height: 100%;
+  background-color: #7bb3ea;
+}
+#sign-in-img {
+  width: 50vmax;
+}
+
+.buttons {
+  display: flex;
+  gap: 1vmax;
+  /* justify-content: center; */
+}
+
+
+
 @media (max-width:1000px) {
   .signup-parent{
     flex-direction: column;
