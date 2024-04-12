@@ -83,7 +83,7 @@ function FAQ() {
           </AccordionPanel>
         </AccordionItem>
 
-        <AccordionItem borderTop="2px solid #0a66c275" borderBottom="2px solid #0a66c275" borderRadius="10px">
+        <AccordionItem borderTop="2px solid #0a66c275" borderBottom="3px solid #0a66c275" borderRadius="10px">
           <h2>
             <AccordionButton borderRadius="10px">
               <Box as="span" flex="1" textAlign="left" style={{ fontSize:"1.15rem" }}>

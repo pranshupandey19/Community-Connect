@@ -42,7 +42,7 @@ export default function WithSubnavigation() {
         borderColor={useColorModeValue("gray.200", "gray.900")}
         align={"center"}
         boxShadow="0 0 1px rgba(85, 166, 246, 0.3), 1px 1.5px 2px -1px rgba(85, 166, 246, 0.15), 4px 4px 12px -2.5px rgba(85, 166, 246, 0.15)"
-        justifyContent={"center"} // Added justifyContent to center the navbar
+        justifyContent={"center"}
       >
         <Flex
           flex={{ base: 1, md: "auto" }}
@@ -226,7 +226,8 @@ const MobileNav = () => {
       {NAV_ITEMS.map((navItem) => (
         <MobileNavItem key={navItem.label} {...navItem} />
       ))}
-      <MobileNavItem label="Sign In" href="#signin" />
+      <MobileNavItem label="Sign In" href="/user/login" />
+      <MobileNavItem label="Sign Up" href="/user/signup" />
     </Stack>
   );
 };
@@ -237,7 +238,6 @@ const MobileNavItem = ({ label, children, href }) => {
   return (
     <Stack spacing={4} onClick={children && onToggle} align="center">
       {" "}
-      {/* Added align="center" */}
       <Box
         py={2}
         as="a"
@@ -292,7 +292,12 @@ const MobileNavItem = ({ label, children, href }) => {
 
 const NAV_ITEMS = [
   {
+    label: "Events",
+    href: "/events"
+  },
+  {
     label: "Register an Event",
+    href: "/new/event"
   },
   {
     label: "Report",
