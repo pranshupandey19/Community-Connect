@@ -106,7 +106,7 @@ export default function AskHelp() {
     // console.log(finalCity.supportEmail)
     const id = toast.loading("Registering Complaint...");
     axios
-      .post("", comp)
+      .post("http://localhost:8080/helps/help", comp)
       .then(() => {
         toast.update(id, {
           render: "Complaint Registered!",

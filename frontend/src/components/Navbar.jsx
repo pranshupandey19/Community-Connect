@@ -301,6 +301,7 @@ const NAV_ITEMS = [
   },
   {
     label: "Report",
+    href: "/ask/help"
   },
   {
     label: "Organisations",

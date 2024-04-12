@@ -3,7 +3,7 @@ const { helpValidation } = require("../utils/validation");
 const express = require("express");
 const wrapAsync = require("../utils/wrapAsync");
 const User = require("../models/user");
-const app = express();
+const bodyParser = require("body-parser");
 
 var jwt = require("jsonwebtoken");
 const helpRouter = express.Router();
@@ -15,6 +15,14 @@ require("dotenv").config();
 
 helpRouter.use(express.json());
 
+helpRouter.use(bodyParser.json({ limit: "50mb" }));
+helpRouter.use(
+  bodyParser.urlencoded({
+    limit: "50mb",
+    extended: true,
+    parameterLimit: 50000,
+  })
+);
 
 const validateHelp = (req, res, next) => {
   let { error } = helpValidation.validate(req.body);
@@ -24,6 +32,11 @@ const validateHelp = (req, res, next) => {
     next();
   }
 };
+
+helpRouter.get("/all", wrapAsync(async(req, res)=>{
+  let data = await Help.find({}).populate('category');
+  res.send(data);
+}))
 
 helpRouter.post("/help",validateHelp,wrapAsync(async(req,res)=>{
   let {title,description,address,image,category} = req.body
@@ -41,8 +54,16 @@ helpRouter.post("/help",validateHelp,wrapAsync(async(req,res)=>{
   }
   else{
     throw new ExpressError(404, "Category not found");
-
   }
+}))
+
+helpRouter.put("/update/:id", wrapAsync(async(req, res)=>{
+  let {newState} = req.body
+  let { id } = req.params;
+  let findHelp = await Help.findById(id);
+  findHelp.state = newState;
+  await findHelp.save()
+  res.send("Done")
 }))
 
 

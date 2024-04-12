@@ -18,6 +18,7 @@ import {
 import AskHelp from "../AskHelp";
 import OrgSignIn from "../OrgSignIn";
 import Thanks from "../Thanks";
+import Helps from "../Helps";
 
 export default function AllRoutes() {
   return (
@@ -50,6 +51,7 @@ export default function AllRoutes() {
       <Route path="/org/signin" element={<OrgSignIn />} />
       <Route path="/ask/help" element={<AskHelp />} />
       <Route path="/thanks/:id/:amount" element={<Thanks />} />
+      <Route path="/requests" element={<Helps/>} />
     </Routes>
   );
 }
