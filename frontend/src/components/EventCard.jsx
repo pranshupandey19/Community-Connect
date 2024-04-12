@@ -77,7 +77,12 @@ export default function EventCard({ data }) {
             <ModalBody>
             <Text>{data.description}
             </Text>
+
             </ModalBody>
+        <ModalBody>
+        <Text>₹ {data.budget}</Text>
+            <Text>{data.date}</Text>
+        </ModalBody>
 
             <ModalFooter >
               <Button colorScheme="blue" mr={3} >

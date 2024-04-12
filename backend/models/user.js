@@ -57,6 +57,12 @@ const userSchema = new mongoose.Schema({
       ref: "Event",
     },
   ],
+  volunteering2: [
+    {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "NPO",
+    },
+  ],
 });
 
 const User = mongoose.model("User", userSchema);

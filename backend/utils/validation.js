@@ -1,4 +1,5 @@
 const Joi = require("joi");
+const Organisation = require("../models/organisation");
 
 exports.userValidation = Joi.object({
   name: Joi.string().required(),
@@ -57,4 +58,13 @@ exports.helpValidation = Joi.object({
   address: Joi.string().required(),
   category: Joi.string().required(),
   image: Joi.string().required(),
+});
+
+exports.npoValidation = Joi.object({
+  name: Joi.string().required(),
+  description: Joi.string().required(),
+  image: Joi.string().required(),
+  volunteers: Joi.number().required(),
+  date: Joi.date().required(),
+  organisation: Joi.string().required(),
 });

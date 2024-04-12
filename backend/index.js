@@ -12,6 +12,7 @@ const helpRouter = require("./routes/helpRoutes");
 const paymentRouter = require("./routes/paymentRoutes");
 const categoryRouter = require("./routes/categoryRoutes");
 const donationRouter = require("./routes/donationRoutes");
+const npoRouter = require("./routes/npoRoutes");
 
 //using dotenv for env. variables
 require("dotenv").config();
@@ -43,6 +44,7 @@ app.use("/helps", helpRouter);
 app.use("/payments", paymentRouter);
 app.use("/category", categoryRouter);
 app.use("/donations", donationRouter);
+app.use("/npos",npoRouter)
 
 // Listening the server!
 const PORT = process.env.PORT || 8080;
