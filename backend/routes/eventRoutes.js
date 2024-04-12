@@ -61,7 +61,7 @@ eventRouter.post(
   jwtVerify,
   validateEvent,
   wrapAsync(async (req, res) => {
-    let { name, description, image, volunteers, institution, budget } =
+    let { name, description, image, volunteers, institution, budget, date} =
       req.body;
     let findinsti = await Institution.find({ name: institution });
     if (findinsti.length != 0) {
@@ -71,6 +71,7 @@ eventRouter.post(
         image: image,
         volunteers: volunteers,
         budget: budget,
+        date: date
       });
       newData.institution = findinsti[0];
       await newData.save();

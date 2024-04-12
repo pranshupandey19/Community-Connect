@@ -47,6 +47,7 @@ exports.eventValidation = Joi.object({
   image: Joi.string().required(),
   volunteers: Joi.number().required(),
   budget: Joi.number().required(),
+  date: Joi.date().required(),
   institution: Joi.string().required(),
 });
 

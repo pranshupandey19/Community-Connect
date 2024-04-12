@@ -11,6 +11,8 @@ import {
   Select,
   Textarea,
   useToast,
+  InputGroup,
+  InputLeftAddon,
 } from "@chakra-ui/react";
 import { getCookie, setCookie } from "../utils/cookie";
 import axios from "axios";
@@ -32,6 +34,7 @@ export default function EventRegister() {
   const FormSubmitHandler = (data) => {
     const examplePromise = new Promise((resolve, reject) => {
       setTimeout(() => {
+        console.log(data);
         axios
           .post("http://localhost:8080/events/new", data, {
             headers: {
@@ -122,6 +125,37 @@ export default function EventRegister() {
                   })}
                 />
                 <p className="err">{errors.volunteers?.message}</p>
+              </FormControl>
+            </div>
+            <div style={{ display: "flex", gap: "3vmin", width: "100%" }}>
+              <FormControl>
+                <FormLabel fontSize="1.2vmax" as="i" fontWeight="550">
+                  Budget
+                </FormLabel>
+                <InputGroup>
+                <InputLeftAddon>₹</InputLeftAddon>
+                <Input
+                  type="text"
+                  borderColor="blue"
+                  {...register("budget", {
+                    required: "Budget is required",
+                  })}
+                  />
+                  </InputGroup>
+                <p className="err">{errors.budget?.message}</p>
+              </FormControl>
+              <FormControl>
+                <FormLabel fontSize="1.2vmax" as="i" fontWeight="550">
+                  Date
+                </FormLabel>
+                <Input
+                  type="date"
+                  borderColor="blue"
+                  {...register("date", {
+                    required: "Date Required",
+                  })}
+                />
+                <p className="err">{errors.date?.message}</p>
               </FormControl>
             </div>
             <Button type="submit" colorScheme="red">

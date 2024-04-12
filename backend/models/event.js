@@ -21,6 +21,10 @@ const eventSchema = new mongoose.Schema({
     type: Number,
     required: true,
   },
+  date: {
+    type: Date,
+    required: true,
+  },
   registered_volunteers: [
     {
       type: mongoose.Schema.Types.ObjectId,
