@@ -38,7 +38,7 @@ export default function Home() {
           py={{ base: 10, md: 15 }}
           direction={{ base: "column", md: "row" }}
         >
-          <Stack flex={1} spacing={{ base: 5, md: 10 }}>
+          <Stack flex={1} spacing={{ base: 3, md: 6 }}>
             <Heading
               lineHeight={1.1}
               fontWeight={600}
@@ -150,7 +150,7 @@ export default function Home() {
       </Stack>
 
       <Container maxW={'5xl'} mt={12}>
-        <Flex flexWrap="wrap" gridGap={6} justify="center">
+        <Flex flexWrap="wrap" gridGap={7} justify="center">
           <Card
             heading={'Manage Events'}
             icon={<Icon as={FcGraduationCap

@@ -26,9 +26,9 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 10vmin;
+  gap: 2vmin;
   /* justify-content: center; */
-  padding: 10vmin 3vmin;
+  padding: 3vmin 3vmin;
 }
 .container {
   min-height: 100vh;
