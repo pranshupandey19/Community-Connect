@@ -7,7 +7,7 @@ export default function NPOs() {
   const [data, setData] = useState([]);
   useEffect(() => {
     axios
-      .get("http://localhost:8080/npos/all")
+      .get("https://community-connect-wbs6.vercel.app/npos/all")
       .then((res) => {
         console.log(res.data);
         setData(res.data);

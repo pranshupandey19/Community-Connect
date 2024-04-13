@@ -31,7 +31,7 @@ export default function EventCard({ data }) {
     if (confirmRes) {
       axios
         .post(
-          "http://localhost:8080/events/volunteer",
+          "https://community-connect-wbs6.vercel.app/events/volunteer",
           { id: `${data["_id"]}` },
           {
             headers: {

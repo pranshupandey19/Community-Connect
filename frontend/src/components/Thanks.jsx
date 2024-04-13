@@ -16,7 +16,7 @@ export default function Thanks() {
       isClosable: false,
     });
     axios
-      .post(`http://localhost:8080/donations/new/${id}`, {
+      .post(`https://community-connect-wbs6.vercel.app/donations/new/${id}`, {
         amount: amount,
         username: username,
       })

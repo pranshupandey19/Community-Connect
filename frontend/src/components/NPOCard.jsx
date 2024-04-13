@@ -31,7 +31,7 @@ import {
       if (confirmRes) {
         axios
           .post(
-            "http://localhost:8080/npos/volunteer",
+            "https://community-connect-wbs6.vercel.app/npos/volunteer",
             { id: `${data["_id"]}` },
             {
               headers: {

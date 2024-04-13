@@ -36,7 +36,7 @@ export default function EventRegister() {
       setTimeout(() => {
         console.log(data);
         axios
-          .post("http://localhost:8080/events/new", data, {
+          .post("https://community-connect-wbs6.vercel.app/events/new", data, {
             headers: {
               Authorization: authToken,
             },

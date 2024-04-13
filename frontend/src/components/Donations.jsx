@@ -20,7 +20,7 @@ export default function Donations() {
   const orgname = getCookie("orgname");
   useEffect(() => {
     axios
-      .get("http://localhost:8080/donations/all")
+      .get("https://community-connect-wbs6.vercel.app/donations/all")
       .then((res) => {
         console.log(res.data);
         setData(res.data);

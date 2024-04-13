@@ -26,7 +26,7 @@ function OrganisationsPosts({ listing }) {
   const [key, setKey] = useState("");
   useEffect(() => {
     axios
-      .get("http://localhost:8080/payments/getkey")
+      .get("https://community-connect-wbs6.vercel.app/payments/getkey")
       .then((res) => {
         setKey(res.data.key);
       })
@@ -47,7 +47,7 @@ function OrganisationsPosts({ listing }) {
     const formSubmitHandler = (data) => {
       console.log(data);
       axios
-        .post("http://localhost:8080/payments/checkout", data)
+        .post("https://community-connect-wbs6.vercel.app/payments/checkout", data)
         .then((res) => {
           console.log(res.data.order);
           const options = {
@@ -58,7 +58,7 @@ function OrganisationsPosts({ listing }) {
             description: "Donation",
             image: `${listing.image}`,
             order_id: res.data.order.id,
-            callback_url: `http://localhost:8080/payments/paymentverification/${listing["_id"]}/${data.amount}`,
+            callback_url: `https://community-connect-wbs6.vercel.app/payments/paymentverification/${listing["_id"]}/${data.amount}`,
             redirect:true, 
             prefill: {
               name: "",

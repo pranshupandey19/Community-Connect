@@ -7,7 +7,7 @@ function Helps() {
   const [data, setData] = useState([]);
   useEffect(() => {
     axios
-      .get("http://localhost:8080/helps/all")
+      .get("https://community-connect-wbs6.vercel.app/helps/all")
       .then((res) => {
         console.log(res.data);
         setData(res.data);

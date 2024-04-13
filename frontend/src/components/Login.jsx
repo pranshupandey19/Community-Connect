@@ -33,7 +33,7 @@ export default function Login() {
     const id = toast.loading("Signing In...");
     setTimeout(() => {
       axios
-        .post("http://localhost:8080/users/signin", data)
+        .post("https://community-connect-wbs6.vercel.app/users/signin", data)
         .then((res) => {
           toast.update(id, {
             render: "Logged in",

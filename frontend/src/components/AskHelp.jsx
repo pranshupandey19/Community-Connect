@@ -27,7 +27,7 @@ export default function AskHelp() {
   const [categories, setCategories] = useState([]);
   useEffect(() => {
     axios
-      .get("http://localhost:8080/category")
+      .get("https://community-connect-wbs6.vercel.app/category")
       .then((res) => {
         setCategories(res.data);
       })
@@ -106,7 +106,7 @@ export default function AskHelp() {
     // console.log(finalCity.supportEmail)
     const id = toast.loading("Registering Complaint...");
     axios
-      .post("http://localhost:8080/helps/help", comp)
+      .post("https://community-connect-wbs6.vercel.app/helps/help", comp)
       .then(() => {
         toast.update(id, {
           render: "Complaint Registered!",

@@ -7,9 +7,8 @@ export default function Events() {
   const [data, setData] = useState([]);
   useEffect(() => {
     axios
-      .get("http://localhost:8080/events/all")
+      .get("https://community-connect-wbs6.vercel.app/events/all")
       .then((res) => {
-        console.log(res.data);
         setData(res.data);
       })
       .catch((err) => {

@@ -36,7 +36,7 @@ export default function NPORegsiter() {
       setTimeout(() => {
         console.log(data);
         axios
-          .post("http://localhost:8080/npos/new", data, {
+          .post("https://community-connect-wbs6.vercel.app/npos/new", data, {
             headers: {
               Authorization: authToken,
             },

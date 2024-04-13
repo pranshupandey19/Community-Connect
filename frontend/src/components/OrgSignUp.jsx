@@ -32,7 +32,7 @@ export default function OrgSignUp() {
   const { userType, setUserType, login, setLogin } = useContext(AppContext);
   useEffect(() => {
     axios
-      .get("http://localhost:8080/category")
+      .get("https://community-connect-wbs6.vercel.app/category")
       .then((res) => {
         console.log(res.data)
         setCategories(res.data);
@@ -46,7 +46,7 @@ export default function OrgSignUp() {
     const id = toast.loading("Signing Up...");
     setTimeout(() => {
       axios
-        .post("http://localhost:8080/orgs/signup", data)
+        .post("https://community-connect-wbs6.vercel.app/orgs/signup", data)
         .then((res) => {
           toast.update(id, {
             render: "Signed Up!",

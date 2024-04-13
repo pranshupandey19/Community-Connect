@@ -34,7 +34,7 @@ export default function InstitutionSignIn() {
     const id = toast.loading("Signing Up...");
     setTimeout(() => {
       axios
-        .post("http://localhost:8080/institutions/signin", data)
+        .post("https://community-connect-wbs6.vercel.app/institutions/signin", data)
         .then((res) => {
           toast.update(id, {
             render: "Signed Up!",

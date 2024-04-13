@@ -28,7 +28,7 @@ export default function UserSignUp() {
   const handleClick = () => setShow(!show)
   useEffect(() => {
     axios
-      .get("http://localhost:8080/institutions")
+      .get("https://community-connect-wbs6.vercel.app/institutions")
       .then((res) => {
         setInstitutions(res.data);
       })
@@ -66,7 +66,7 @@ export default function UserSignUp() {
     const id = toast.loading("Signing Up...");
     setTimeout(() => {
       axios
-        .post("http://localhost:8080/users/signup", formData)
+        .post("https://community-connect-wbs6.vercel.app/users/signup", formData)
         .then((res) => {
           toast.update(id, {
             render: "Signed Up",

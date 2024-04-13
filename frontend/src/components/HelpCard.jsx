@@ -26,7 +26,7 @@ import React from "react";
 export default function HelpCard({ data }) {
 
   const stateChange = (val) => {
-    axios.put(`http://localhost:8080/helps/update/${data["_id"]}`, {newState:val})
+    axios.put(`https://community-connect-wbs6.vercel.app/helps/update/${data["_id"]}`, {newState:val})
     .then((res)=>{
       console.log(res.data);
     }).catch((err)=>{

@@ -11,7 +11,7 @@ function Organisations() {
     const [data, setData] = useState([]);
     useEffect(() => {
         axios
-            .get("http://localhost:8080/orgs")
+            .get("https://community-connect-wbs6.vercel.app/orgs")
             .then((data) => {
                 setData(data.data);
             })
