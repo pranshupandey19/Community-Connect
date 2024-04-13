@@ -114,7 +114,7 @@ export default function AskHelp() {
           isLoading: false,
         });
         setTimeout(() => {
-          navigate("/complaints");
+          navigate("/requests");
         }, 1500);
       })
       .catch((err) => {

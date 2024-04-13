@@ -72,7 +72,7 @@ export default function AllRoutes() {
       <Route path="/org/signin" element={<OrgSignIn />} />
       <Route path="/ask/help" element={<AskHelp />} />
       <Route path="/thanks/:id/:amount" element={<Thanks />} />
-      <Route path="/requests" element={<Helps />} />
+      <Route path="/requests" element={<OrganisationPrivateRoute><Helps /></OrganisationPrivateRoute>} />
       <Route
         path="/donations"
         element={
