@@ -2,8 +2,8 @@
 
 CommunityConnect is a collaborative platform designed to unite non-profit organizations, educational institutions, and individuals, fostering community engagement and social impact. Our mission is to provide a centralized hub where users can discover, connect, and contribute to various social causes and events.
 
-### [Frontend Deplyoed Link](https://community-connect-chads.vercel.app/)
-### [Backend Deplyoed Link](https://community-connect-wbs6.vercel.app/)
+### [Frontend Deployed Link](https://community-connect-chads.vercel.app/)
+### [Backend Deployed Link](https://community-connect-wbs6.vercel.app/)
 
 ## Key Features (Portal Wise Segregation)
 
