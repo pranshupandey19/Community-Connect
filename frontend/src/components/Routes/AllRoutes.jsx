@@ -73,7 +73,14 @@ export default function AllRoutes() {
       <Route path="/ask/help" element={<AskHelp />} />
       <Route path="/thanks/:id/:amount" element={<Thanks />} />
       <Route path="/requests" element={<Helps />} />
-      <Route path="/donations" element={<Donations />} />
+      <Route
+        path="/donations"
+        element={
+          <OrganisationUserPrivateRoute>
+            <Donations />
+          </OrganisationUserPrivateRoute>
+        }
+      />
     </Routes>
   );
 }

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext } from "react";
 import Logo from "../assets/Logo.png";
 import {
   Box,
@@ -21,9 +21,77 @@ import {
   ChevronDownIcon,
   ChevronRightIcon,
 } from "@chakra-ui/icons";
+import { AppContext } from "./Context";
+import { deleteCookie } from "../utils/cookie";
 
 export default function WithSubnavigation() {
   const { isOpen, onToggle } = useDisclosure();
+  const { login, setLogin } = useContext(AppContext);
+
+  const logout = () => {
+    deleteCookie("type");
+    deleteCookie("username");
+    deleteCookie("orgname");
+    deleteCookie("auth-token");
+    location.reload();
+  };
+  const renderLoginBtns = () => {
+    if (!login) {
+      return (
+        <>
+          <Button
+            as={"a"}
+            display={{ base: "none", md: "inline-flex" }}
+            fontSize={"md"}
+            fontWeight={800}
+            color="#0959aa"
+            borderRadius="10px"
+            bg="transparent"
+            href={"/user/login"}
+            _hover={{
+              bg: "#55a6f630",
+            }}
+          >
+            Sign In
+          </Button>
+          <Button
+            as={"a"}
+            display={{ base: "none", md: "inline-flex" }}
+            fontSize={"md"}
+            fontWeight={800}
+            color={"white"}
+            bg="#0959aa"
+            borderRadius="10px"
+            href={"/user/signup"}
+            _hover={{
+              bg: "#0a66c2",
+            }}
+          >
+            Sign Up
+          </Button>
+        </>
+      );
+    } else {
+      return (
+        <Button
+          as={"a"}
+          display={{ base: "none", md: "inline-flex" }}
+          fontSize={"md"}
+          fontWeight={800}
+          color="#0959aa"
+          borderRadius="10px"
+          bg="transparent"
+          onClick={logout}
+          cursor={"pointer"}
+          _hover={{
+            bg: "#55a6f630",
+          }}
+        >
+          Log out
+        </Button>
+      );
+    }
+  };
 
   return (
     <Box position="sticky" top="0" zIndex="99">
@@ -83,36 +151,7 @@ export default function WithSubnavigation() {
           direction={"row"}
           spacing={6}
         >
-          <Button
-            as={"a"}
-            display={{ base: "none", md: "inline-flex" }}
-            fontSize={"md"}
-            fontWeight={800}
-            color="#0959aa"
-            borderRadius="10px"
-            bg="transparent"
-            href={"/user/login"}
-            _hover={{
-              bg: "#55a6f630",
-            }}
-          >
-            Sign In
-          </Button>
-          <Button
-            as={"a"}
-            display={{ base: "none", md: "inline-flex" }}
-            fontSize={"md"}
-            fontWeight={800}
-            color={"white"}
-            bg="#0959aa"
-            borderRadius="10px"
-            href={"/user/signup"}
-            _hover={{
-              bg: "#0a66c2",
-            }}
-          >
-            Sign Up
-          </Button>
+          {renderLoginBtns()}
         </Stack>
       </Flex>
 
@@ -132,21 +171,21 @@ const DesktopNav = () => {
         <Box key={navItem.label}>
           <Popover trigger={"hover"} placement={"bottom-start"}>
             <PopoverTrigger>
-            <Button
-            as={"a"}
-            display={{ base: "none", md: "inline-flex" }}
-            fontSize={"md"}
-            fontWeight={600}
-            color="black"
-            borderRadius="15px"
-            bg="transparent"
-            href={navItem.href}
-            _hover={{
-              bg: "#55a6f630",
-            }}
-          >
-            {navItem.label}
-          </Button>
+              <Button
+                as={"a"}
+                display={{ base: "none", md: "inline-flex" }}
+                fontSize={"md"}
+                fontWeight={600}
+                color="black"
+                borderRadius="15px"
+                bg="transparent"
+                href={navItem.href}
+                _hover={{
+                  bg: "#55a6f630",
+                }}
+              >
+                {navItem.label}
+              </Button>
             </PopoverTrigger>
 
             {navItem.children && (
@@ -211,6 +250,26 @@ const DesktopSubNav = ({ label, href, subLabel }) => {
 };
 
 const MobileNav = () => {
+  const { login, setLogin } = useContext(AppContext);
+  const logout = () => {
+    deleteCookie("type");
+    deleteCookie("username");
+    deleteCookie("orgname");
+    deleteCookie("auth-token");
+    location.reload();
+  };
+  const renderLoginBtnMobile = () => {
+    if (!login) {
+      return (
+        <>
+          <MobileNavItem label="Sign In" href="/user/login" />
+          <MobileNavItem label="Sign Up" href="/user/signup" />
+        </>
+      );
+    } else {
+      return <MobileNavItem label="Log out" onClick={logout} />;
+    }
+  };
   return (
     <Stack
       bg="rgba(203, 229, 255, 80%)"
@@ -221,13 +280,11 @@ const MobileNav = () => {
       boxShadow="0px 0px 4px rgba(0, 0, 0, 0.3)"
       border="1px solid #0959aa50"
       backdropFilter="blur(5px)"
-
     >
       {NAV_ITEMS.map((navItem) => (
         <MobileNavItem key={navItem.label} {...navItem} />
       ))}
-      <MobileNavItem label="Sign In" href="/user/login" />
-      <MobileNavItem label="Sign Up" href="/user/signup" />
+      {renderLoginBtnMobile()}
     </Stack>
   );
 };
@@ -293,15 +350,15 @@ const MobileNavItem = ({ label, children, href }) => {
 const NAV_ITEMS = [
   {
     label: "Events",
-    href: "/events"
+    href: "/events",
   },
   {
     label: "Register an Event",
-    href: "/new/event"
+    href: "/new/event",
   },
   {
     label: "Report",
-    href: "/ask/help"
+    href: "/ask/help",
   },
   {
     label: "Organisations",
