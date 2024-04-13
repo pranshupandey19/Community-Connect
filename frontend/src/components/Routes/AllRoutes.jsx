@@ -23,6 +23,7 @@ import Thanks from "../Thanks";
 import Helps from "../Helps";
 import NPORegsiter from "../NPORegister";
 import NPOs from "../NPOs";
+import Donations from "../Donations";
 
 export default function AllRoutes() {
   return (
@@ -72,6 +73,7 @@ export default function AllRoutes() {
       <Route path="/ask/help" element={<AskHelp />} />
       <Route path="/thanks/:id/:amount" element={<Thanks />} />
       <Route path="/requests" element={<Helps />} />
+      <Route path="/donations" element={<Donations />} />
     </Routes>
   );
 }

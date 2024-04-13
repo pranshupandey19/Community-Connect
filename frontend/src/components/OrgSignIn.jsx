@@ -43,6 +43,7 @@ export default function OrgSignIn() {
           });
           setCookie("auth-token", res.data, 365);
           setCookie("type", "Organization", 365);
+          setCookie("orgname", data.orgname, 365);
           setUserType(typeCheck());
           setLogin(loginCheck());
           setTimeout(() => {

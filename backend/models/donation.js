@@ -7,11 +7,11 @@ const donationSchema = new mongoose.Schema({
     },
     by:{
         type: mongoose.Schema.Types.ObjectId,
-        required: true
+        ref:"User"
     },
     to:{
         type: mongoose.Schema.Types.ObjectId,
-        required: true
+        ref:"Organisation"
     }
 })
 

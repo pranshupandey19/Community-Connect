@@ -22,6 +22,9 @@ body {
   background-repeat: no-repeat;
   background-size: 100vw 100vh;
 }
+.table::-webkit-scrollbar {
+  display: none;
+}
 .flex {
   display: flex;
   flex-direction: column;
@@ -46,7 +49,7 @@ body {
   border-radius: 20px;
   padding: 2vmin 5vmin;
 }
-.signup-grandparent{
+.signup-grandparent {
   flex: 1;
   display: flex;
   flex-direction: column;
@@ -60,7 +63,7 @@ body {
   align-items: center;
   gap: 4vmin;
 }
-.signup-btns{
+.signup-btns {
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -93,17 +96,17 @@ body {
   font-size: 1.5vmin;
   margin-top: 0.5vmin;
 }
-.organisations-parent{
+.organisations-parent {
   /* width: 50vw; */
   flex: 1;
   gap: 2rem;
   padding: 2vmin 10vmin;
 }
-.alerts-parent{
+.alerts-parent {
   flex: 1;
   padding: 4vmin 10vmin;
 }
-.events-parent{
+.events-parent {
   flex: 1;
   display: flex;
   flex-direction: column;
@@ -112,7 +115,7 @@ body {
   gap: 4vmin;
   padding: 3vmin 15vmin;
 }
-.event-card{
+.event-card {
   padding: 2vmin;
   border-radius: 5px;
   display: flex;
@@ -121,7 +124,7 @@ body {
   background-color: white;
   border: 1px solid lightblue;
 }
-.thanks-parent{
+.thanks-parent {
   flex: 1;
   display: flex;
   flex-direction: column;
@@ -142,7 +145,6 @@ body {
   justify-content: center;
   align-items: center;
 }
-
 
 .complaint-box {
   /* line-height: 3vmax; */
@@ -216,22 +218,31 @@ body {
   /* justify-content: center; */
 }
 
+.donations-parent {
+  flex: 1;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-evenly;
+  /* gap: 6vmin; */
+  padding: 7vmin 4vmin;
+}
 
-
-@media (max-width:1000px) {
-  .signup-parent{
+@media (max-width: 1000px) {
+  .signup-parent {
     flex-direction: column;
     justify-content: center;
     gap: 6vmax;
   }
-  .form-parent{
-    flex:0;
+  .form-parent {
+    flex: 0;
   }
-  .signup-btns{
+  .signup-btns {
     flex-direction: column;
     gap: 2vmax;
   }
-  .form{
+  .form {
     gap: 2vmax;
   }
   .err {
@@ -239,7 +250,8 @@ body {
   }
 }
 @keyframes bounce {
-  0%, 100% {
+  0%,
+  100% {
     transform: translateY(-10px);
   }
   50% {

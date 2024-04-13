@@ -34,6 +34,18 @@ donationRouter.post(
   })
 );
 
+donationRouter.get(
+  "/all",
+  wrapAsync(async (req, res) => {
+    let result = await Donation.find({}).populate("to").populate("by");
+    if (result.length != 0) {
+      res.send(result);
+    } else {
+      throw new ExpressError(400, "No donations!");
+    }
+  })
+);
+
 donationRouter.use((err, req, res, next) => {
   let { status = 500, message = "Some error occured..!" } = err;
   res.status(status).send(message);
