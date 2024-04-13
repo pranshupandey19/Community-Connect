@@ -32,7 +32,7 @@ paymentRouter.post(
 
 paymentRouter.post("/paymentverification/:id/:amount", async (req, res) => {
   let { id, amount } = req.params;
-  res.redirect(`https://community-connect-wbs6.vercel.app/thanks/${id}/${amount}`);
+  res.redirect(`https://community-connect-chads.vercel.app/thanks/${id}/${amount}`);
 });
 
 paymentRouter.get("/getkey", (req, res) => {
