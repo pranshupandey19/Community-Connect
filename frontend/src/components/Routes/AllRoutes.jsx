@@ -16,6 +16,7 @@ import {
   InstitutionUserPrivateRoute,
   OrganisationPrivateRoute,
   OrganisationUserPrivateRoute,
+  UserPrivateRoute,
 } from "./PrivateRoutes";
 import AskHelp from "../AskHelp";
 import OrgSignIn from "../OrgSignIn";
@@ -70,9 +71,23 @@ export default function AllRoutes() {
         }
       />
       <Route path="/org/signin" element={<OrgSignIn />} />
-      <Route path="/ask/help" element={<AskHelp />} />
+      <Route
+        path="/ask/help"
+        element={
+          <UserPrivateRoute>
+            <AskHelp />
+          </UserPrivateRoute>
+        }
+      />
       <Route path="/thanks/:id/:amount" element={<Thanks />} />
-      <Route path="/requests" element={<OrganisationPrivateRoute><Helps /></OrganisationPrivateRoute>} />
+      <Route
+        path="/requests"
+        element={
+          <OrganisationPrivateRoute>
+            <Helps />
+          </OrganisationPrivateRoute>
+        }
+      />
       <Route
         path="/donations"
         element={

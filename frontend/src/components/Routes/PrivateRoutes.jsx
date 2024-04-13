@@ -84,3 +84,23 @@ export const OrganisationUserPrivateRoute = ({ children }) => {
 
   return <>{children}</>;
 };
+
+export const UserPrivateRoute = ({ children }) => {
+  const navigate = useNavigate();
+  const { userType, setUserType } = useContext(AppContext);
+  const toast = useToast();
+  useEffect(() => {
+    if (userType != "User") {
+      toast({
+        title: "Not Authorized!",
+        description: "Please signup/login as a user!",
+        status: "error",
+        duration: 4000,
+        isClosable: false,
+      });
+      navigate("/user/signup");
+    }
+  }, []);
+
+  return <>{children}</>;
+};
